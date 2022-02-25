@@ -2,6 +2,8 @@ package com.neurotrainer.main;
 
 import java.io.File;
 
+import com.neurotrainer.core.Core;
+
 import net.java.games.input.Component;
 import net.java.games.input.Controller;
 import net.java.games.input.ControllerEnvironment;
@@ -64,7 +66,6 @@ public class Main {
 							buffer.append("Off");
 						}
 					}
-					System.out.println(buffer.toString());
 				}
 			}
 
@@ -81,10 +82,12 @@ public class Main {
 		}
 	}
 
-	public static void main(String[] args) {		
-		System.setProperty("net.java.games.input.librarypath", new File(System.getProperty("user.dir") + "\\natives").getAbsolutePath());
+	public static void main(String[] args) {
+		System.setProperty("net.java.games.input.librarypath", new File("C:\\Workspaces\\workspace\\NeuroTrainer\\natives").getAbsolutePath());
 		
-		Main main = new Main();
-		main.readAllEvents();
+		/*Main main = new Main();
+		main.readAllEvents();*/
+		Core core = new Core();
+		core.start();
 	}
 }
