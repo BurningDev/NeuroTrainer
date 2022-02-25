@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.neurotrainer.core.ControllerKeys;
 import com.neurotrainer.core.PsychologyTest;
 import com.neurotrainer.views.TestPanel;
 
@@ -115,12 +116,12 @@ public class Stroop implements PsychologyTest {
 
 	public void keyPressed(String key) {
 		// Only buttons are accepted
-		if (!(key.startsWith("Taste"))) {
+		if (!ControllerKeys.getInstance().existsKeyValue(key)) {
 			return;
 		}
 
 		// Activation of instruction
-		if (instruction == true && key.equals("Taste 7")) {
+		if (instruction == true && key.equals(ControllerKeys.getInstance().getKey(ControllerKeys.KEY_START))) {
 			instruction = false;
 		} else if (instruction == true) {
 			return;
@@ -135,7 +136,7 @@ public class Stroop implements PsychologyTest {
 				colorMet = false;
 			}
 
-			if (key.equals("Taste " + colorDisplayed)) {
+			if (key.equals(ControllerKeys.getInstance().getKeyByColorCode(colorDisplayed))) {
 				amount++;
 
 				if (amount > MAX_AMOUNT) {

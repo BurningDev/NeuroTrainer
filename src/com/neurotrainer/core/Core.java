@@ -124,22 +124,28 @@ public class Core {
 		thread.start();
 		threadUpdate.start();
 
-		/*
-		 * System.out.println("Start:"); this.scanner = new Scanner(System.in);
-		 * 
-		 * String cmd = this.scanner.next();
-		 * 
-		 * PsychologyTest test = this.tests.get(cmd);
-		 */
+		System.out.println("+++============+++");
+		System.out.println("   NeuroTrainer");
+		System.out.println("+++============+++");
+		this.scanner = new Scanner(System.in);
+
+		do {
+			System.out.print("Test (Reaction, Stroop): ");
+			String cmd = this.scanner.next().toLowerCase();
+
+			this.currentTest = this.tests.get(cmd);
+		} while (currentTest == null);
+
 		startTest();
 	}
 
 	private void initializeTests() {
 		this.tests = new HashMap<>();
 
-		// this.currentTest = new Stroop();
-		this.currentTest = new Reaction();
-		this.tests.put(currentTest.getId(), currentTest);
+		PsychologyTest test = new Stroop();
+		this.tests.put(test.getName().toLowerCase(), test);
+		test = new Reaction();
+		this.tests.put(test.getName().toLowerCase(), test);
 	}
 
 	private PsychologyTest currentTest;

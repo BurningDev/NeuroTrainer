@@ -1,5 +1,6 @@
 package com.neurotrainer.test;
 
+import com.neurotrainer.core.ControllerKeys;
 import com.neurotrainer.core.PsychologyTest;
 import com.neurotrainer.views.Form;
 import com.neurotrainer.views.TestPanel;
@@ -139,12 +140,12 @@ public class Reaction implements PsychologyTest {
 
 	@Override
 	public void keyPressed(String key) {
-		if (!key.startsWith("Taste")) {
+		if(!ControllerKeys.getInstance().existsKeyValue(key)) {
 			return;
 		}
 
 		// Activation of instruction
-		if (instruction == true && key.equals("Taste 7")) {
+		if (instruction == true && key.equals(ControllerKeys.getInstance().getKey(ControllerKeys.KEY_START))) {
 			instruction = false;
 		} else if (instruction == true) {
 			return;
