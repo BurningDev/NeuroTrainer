@@ -49,7 +49,7 @@ Copyright 2021 BurningDev
 Licensed under the MIT-License.
 
 </br></br>
-<a href="https://github.com/BurningDev?tab=repositories">
+<a href="https://github.com/BurningDev?tab=repositories&q=BDHS">
 <img src="https://github.com/BurningDev/NeuroTrainer/assets/19328035/8c046678-9b03-421b-9ecb-38aba328c0e9" alt="BurningDev Health Suite Logo" width="300"/></br>
 </a>
 **Part of BurningDev Health Suite**
